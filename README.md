@@ -2,7 +2,7 @@ tiny_fabric
 ===========
 
 Tiny fabric with a rest interface
-
+TODO: Let's use goji
 Develop
 -------
 https://code.google.com/p/go-wiki/wiki/GithubCodeLayout
