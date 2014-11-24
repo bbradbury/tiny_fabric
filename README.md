@@ -9,7 +9,7 @@ https://code.google.com/p/go-wiki/wiki/GithubCodeLayout
 
 ```
 apt-get install golang
-mkdir -p go_workspace/github.com/
+mkdir -p go_workspace/github.com/bbradbury
 git clone <path_to_tiny_fabric>
 
 install gpm  #https://github.com/pote/gpm
