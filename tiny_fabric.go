@@ -1,18 +1,26 @@
 package main
 
 import (
-  "github.com/codegangsta/negroni"
-  "net/http"
-  "fmt"
+	"fmt"
+	"github.com/zenazn/goji"
+	"github.com/zenazn/goji/web"
+	"net/http"
 )
 
-func main() {
-  mux := http.NewServeMux()
-  mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-    fmt.Fprintf(w, "Welcome to the home page!\n")
-  })
+func hello(c web.C, w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Welcome too the home page, %s!", c.URLParams["name"])
+}
 
-  n := negroni.Classic()
-  n.UseHandler(mux)
-  n.Run(":3000")
+func createService(c web.C, w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Creating service %s...", c.URLParams["name"])
+}
+
+func main() {
+	goji.Get("/hello/:name", hello)
+	goji.Get("/services", func() {})
+	goji.Post("/services/:service_name", createService)
+	goji.Post("/services/:service_name/instances/:instance_id", func() {})
+	goji.Post("/services/:service_name/instances/:instance_id/logs", func() {})
+	goji.Post("/services/:service_name/instances/:instance_id/logs/:log_id", func() {})
+	goji.Serve()
 }
