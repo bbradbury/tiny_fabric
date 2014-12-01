@@ -1,2 +1,2 @@
-github.com/codegangsta/negroni		ae96f1c
-github.com/zenazn/goji v0.8.1
+github.com/fsouza/go-dockerclient 10d10d4
+github.com/gin-gonic/gin dcad0df
